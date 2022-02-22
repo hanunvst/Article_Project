@@ -1,0 +1,97 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        {% block title %}  {% endblock %}
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+  <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-success fixed-top">
+          <div class="container">
+              <a href="/" class="navbar-brand"> Articles Information</a>
+
+              <button type="button" class="navbar-toggler" data-target="#navbarToggle"
+                      data-toggle="collapse">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarToggle">
+                  <!--  Left side menus -->
+                  <div class="navbar-nav mr-auto">
+                      <a href="{% url 'blog_home' %}" class="nav-item nav-link"> Home </a>
+                      <a href="{% url 'blog_about' %}" class="nav-item nav-link"> About </a>
+                      <a href="{% url 'responsive' %}" class="nav-item nav-link"> Responsive </a>
+                  </div>
+
+                  <!--  Right side menus -->
+                  <div class="navbar-nav">
+                      {% if user.is_authenticated %}
+                          <a href="{% url 'post_create' %}" class="nav-item nav-link"> New Post </a>
+                          <a href="{% url 'profile' %}" class="nav-item nav-link"> Profile </a>
+                          <a href="{% url 'logout' %}" class="nav-item nav-link"> Logout </a>
+                      {% else %}
+                          <a href="{% url 'login' %}" class="nav-item nav-link"> Login </a>
+                          <a href="{% url 'register' %}" class="nav-item nav-link"> Register </a>
+                      {% endif %}
+
+                  </div>
+              </div>
+          </div>
+      </nav>
+  </header>
+
+  <main class="container">
+     <div class="row">
+         <div class="col-md-8">
+
+            {% if messages %}
+               {% for message  in messages %}
+                   <div class="alert alert-{{ message.tags }} alert-dismissible">
+                       <button type="button" class="close" data-dismiss="alert">&times;</button>
+                       {{ message }}
+                   </div>
+               {% endfor %}
+            {% endif %}
+
+            {% block body %}
+
+            {% endblock %}
+         </div> <!-- lest side content -->
+
+         <div class="col-md-4">
+            <div class="content-section" style="margin-top: 20px">
+                <h3> Our Information</h3>
+                <p class="text-danger">You can put any information here you'd like</p>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-danger">
+                        <a href="{% url 'latest_posts' %}"> Latest Posts </a></li>
+                    <li class="list-group-item list-group-item-success">
+                        <a href="{% url 'interview_questions' %}"> Interview Questions</a></li>
+                    <li class="list-group-item list-group-item-primary">
+                        <a href="#"> Sports Information</a></li>
+                    <li class="list-group-item list-group-item-warning">
+                        <a href="#"> Movie Updates</a></li>
+                </ul>
+            </div>
+         </div> <!-- risht side content -->
+     </div> <!-- row body -->
+  </main>
+
+  <footer id="footerid">
+     Copy Act &copy; 2022, All Rights resrved to Srinivas
+  </footer>
+
+
+</body>
+</html>

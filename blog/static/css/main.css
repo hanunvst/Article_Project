@@ -1,0 +1,45 @@
+body{
+    margin-top: 90px;
+    background-color: greenyellow;
+}
+
+.content-section{
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border: 2px solid coral;
+    margin-bottom: 20px;
+}
+
+#footerid{
+    background-color: green;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 150px;
+}
+
+.account-img{
+    width: 125px;
+    height: 125px;
+    margin-right: 20px;
+}
+
+.myh2{
+   background-color: yellow;
+    color: red;
+    text-align: center;
+    font-family: Algerian;
+    margin-top: 40px;
+}
+
+.myclass{
+    background-color: coral;
+    color: white;
+    padding: 10px 0px 10px 30px;
+    margin-bottom: 60px;
+
+}

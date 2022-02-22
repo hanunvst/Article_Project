@@ -1,0 +1,14 @@
+
+{% extends 'blog/base.html' %}
+
+{% block title %} Logout-Page {% endblock %}
+
+{% block body %}
+    <div class="content-section" style="margin-bottom: 100px">
+      <h1>You logged out now successfully!</h1>
+      <h2>Thanks for visiting my site.</h2>
+        <h4>Do you want <a href="{% url 'login' %}">login</a> againa</h4>
+    </div>
+
+{% endblock %}
+

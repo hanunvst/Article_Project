@@ -1,0 +1,31 @@
+
+
+<style>
+    ol{
+        background-color: yellow;
+        padding: 30px;
+    }
+    ol li{
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    ol li a:hover{
+        background-color: white;
+        color: red;
+        text-decoration: none;
+    }
+
+</style>
+{% extends 'blog/base.html' %}
+
+{% block title %} Questions {% endblock %}
+
+{% block body %}
+   <h1> Python Questions:</h1>
+   <ol>
+      <li><a href=""> What is difference between list and tuple? </a> </li>
+      <li><a href=""> What is difference between Mutable and Immutable? </a> </li>
+      <li><a href=""> What is difference between append() and extend()? </a> </li>
+   </ol>
+{% endblock %}
